@@ -1,0 +1,11 @@
+# Keep the Docker build context small — node_modules and .next alone are
+# hundreds of MB and get replaced inside the image anyway.
+node_modules
+.next
+.git
+.vercel
+*.tsbuildinfo
+Dockerfile
+.dockerignore
+README.md
+DEPLOY.md

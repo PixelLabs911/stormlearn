@@ -1,0 +1,9 @@
+# Files excluded from `vercel deploy` uploads.
+# node_modules/ and .next/ are rebuilt on Vercel — never upload them.
+node_modules
+.next
+.git
+.vercel
+*.tsbuildinfo
+README.md
+DEPLOY.md

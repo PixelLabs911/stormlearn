@@ -1,0 +1,17 @@
+# Nixpacks / Railway build config.
+#
+# Pins Node 22 because pdfjs-dist@5.4.149 requires >=20.16.0, and Nixpacks
+# would otherwise pick a provider default that may be older.
+[phases.setup]
+nixPkgs = ["nodejs_22", "npm-9_x"]
+
+[phases.install]
+cmds = ["npm ci --no-audit --no-fund"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+# $PORT is injected by the host. `next start` directly, not `npm start`, so the
+# prestart hook doesn't try to reinstall/rebuild on a read-only filesystem.
+cmd = "npx next start -H 0.0.0.0 -p ${PORT:-3000}"
