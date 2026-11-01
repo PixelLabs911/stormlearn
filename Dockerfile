@@ -31,7 +31,6 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 # Next.js `start` binds $PORT; set explicitly so container platforms that
 # inject their own port still work, and 3000 is the default otherwise.
-ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
 # Run as an unprivileged user — most PaaS hosts require or prefer this.
@@ -49,4 +48,4 @@ EXPOSE 3000
 
 # `next start` directly — NOT `npm start`, because the prestart hook would try
 # to reinstall and rebuild inside a read-only or already-built image.
-CMD ["npx", "next", "start", "-H", "0.0.0.0", "-p", "3000"]
+CMD ["npx", "next", "start", "-H", "0.0.0.0"]
